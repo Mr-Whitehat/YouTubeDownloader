@@ -1,5 +1,3 @@
-from tkinter.filedialog import askdirectory
-
 from django.shortcuts import render
 from pytube import *
 import os
