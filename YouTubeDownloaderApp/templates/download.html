@@ -1,0 +1,43 @@
+{% extends 'basic.html' %}
+ {% block title %}
+ YouTube Video Resolutions
+{% endblock %}
+
+{% block body %}
+
+<div class="container mt-4">
+    <div class="embed-responsive embed-responsive-21by9">
+        <iframe class="embed-responsive-item" src={{embed}} allowfullscreen></iframe>
+    </div>
+    <br>
+    <h4>Title: {{title}}</h4>
+</div>
+
+<div class="container my-5">
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Quality</th>
+            <th scope="col">Type</th>
+            <th scope="col">Size</th>
+            <th scope="col">Download</th>
+        </tr>
+        </thead>
+        {% for j in strms %}
+        <tbody>
+        <tr>
+            <th>{{j.resolution}}</th>
+            <td>{{j.mime_type}}</td>
+            <td>{{j.filesize}} Bytes</td>
+            <td>
+                <form action="{% url 'ytproject:download_done' j.resolution %}" method="post">
+                    {% csrf_token %}
+                    <input type="submit" class="btn btn-success" value="Download">
+                </form>
+        </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'basic.html' %}
+ {% block title %}
+ YouTube Downloader . The Best YouTube Video downloader!
+{% endblock %}
+ {% block body %}
+  <marquee style="color: green" ><strong>Welcome to YouTube Downloader! You can download YouTube video(s).</strong></marquee>
+    <div class="container mt-5">
+     <center><h1>Enter YouTube Video URL (Link)</h1></center>
+ </div>
+
+ <div class="container mt-5">
+     <center>
+         <form action='download' method="get" >
+<!--             {% csrf_token %}-->
+<!--             method='post'-->
+         <div class="form-group">
+             <input name='url' type="text" class="form-control" placeholder="Enter YouTube video URL here">
+         </div>
+         <button type="submit" class="btn btn-danger ">Proceed to Download</button>
+     </form>
+     </center>
+ </div>
+<br><br><br><br><br><br><br><br><br>
+{% endblock %}
